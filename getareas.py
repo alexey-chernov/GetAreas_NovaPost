@@ -2,7 +2,7 @@ import requests
 import openpyxl
 
 # Ваш API ключ
-API_KEY = 'your_api_key_here'
+API_KEY = '58ab545f60529346b896f526b30d1ad4'
 
 # URL для запитів до API Нової Пошти
 API_URL = "https://api.novaposhta.ua/v2.0/json/"
@@ -66,6 +66,7 @@ def main():
     areas = get_areas()
 
     for area in areas:
+        print(area)
         area_name = area['Description']
         area_ref = area['Ref']
         cities = get_cities(area_ref)
@@ -73,6 +74,7 @@ def main():
         all_data[area_name] = {}
 
         for city in cities:
+            print(city)
             city_name = city['Description']
             city_ref = city['Ref']
             warehouses = get_warehouses(city_ref)
